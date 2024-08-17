@@ -9,6 +9,7 @@ Route::get('/', function () {
     return view('home', ['title' => 'Homepage']);
 });
 
+
 Route::get('/about', function () {
     return view('about', [
         'name' => 'Aizan Syalim',
@@ -20,9 +21,9 @@ Route::get('/posts', function () {
     return view('posts', ['title' => 'Blog Page','posts' => Post::all()]);
 });
 
-Route::get('/posts/{slug}', function($slug){
+Route::get('/posts/{post:slug}', function(Post $post){
 
-    $post = Post::find($slug);
+    // $post = Post::find($id);
 
     return view('post', [
         'title' => 'Single Post',
